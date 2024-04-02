@@ -79,6 +79,8 @@ public class LoginController implements Initializable {
             alert.setContentText("Erro de Usuario ou Senha");
             alert.showAndWait();
             
+           
+            
         }
 
     }
