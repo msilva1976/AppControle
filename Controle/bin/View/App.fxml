@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxWidth="1128.0" minHeight="694.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AppController">
+   <children>
+      <MenuBar fx:id="menuprincipal" layoutX="-1.0" layoutY="1.0" maxHeight="27.0" maxWidth="1128.0" minHeight="27.0" minWidth="1128.0" prefHeight="27.0" prefWidth="1128.0">
+        <menus>
+          <Menu fx:id="menuarquivo" mnemonicParsing="false" text="Arquivo">
+            <items>
+              <MenuItem fx:id="menucadastracarretas" mnemonicParsing="false" text="Cadastrar Carretas" />
+                  <MenuItem fx:id="menucadastracavalos" mnemonicParsing="false" text="Cadastrar Cavalos" />
+                  <MenuItem fx:id="menucadastrabobs" mnemonicParsing="false" text="Cadastrar Bobs" />
+                  <MenuItem fx:id="menucadastrausuarios" mnemonicParsing="false" text="Cadastrar Usuarios" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="menucadastrasair" mnemonicParsing="false" text="Sair" />
+            </items>
+          </Menu>
+            <Menu fx:id="menueditar" mnemonicParsing="false" text="Editar">
+               <items>
+                  <MenuItem fx:id="menueditarcarretas" mnemonicParsing="false" text="Editar Carretas" />
+                  <MenuItem fx:id="menueditarcavalos" mnemonicParsing="false" text="Editar Cavaslos" />
+                  <MenuItem fx:id="menueditarbobs" mnemonicParsing="false" text="Editar de Bobs" />
+                  <MenuItem fx:id="menueditarusuarios" mnemonicParsing="false" text="Editar Usuarios" />
+               </items>
+            </Menu>
+            <Menu fx:id="menucadastro" mnemonicParsing="false" text="Cadastros">
+               <items>
+                  <MenuItem fx:id="menucadastrocarretas" mnemonicParsing="false" text="Cadastro Carretas" />
+                  <MenuItem fx:id="menucadastrocavalos" mnemonicParsing="false" text="Cadastro Cavaslos" />
+                  <MenuItem fx:id="menucadastrobobs" mnemonicParsing="false" text="Cadastro Bobs" />
+                  <MenuItem fx:id="menucadastrousuaris" mnemonicParsing="false" text="Cadastro Usuarios" />
+               </items>
+            </Menu>
+            <Menu fx:id="menusobre" mnemonicParsing="false" text="Sobre">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Sobre" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>
