@@ -19,7 +19,7 @@ public class BobDAO{
         conn = new ConnectionFactory().getConnection();
     }
     public boolean add(CadastroBobsModel bobs){
-        String sql = "NSERT INTO bobs (frota, placa,tara ) VALUES (?,?,?);";
+        String sql = "INSERT INTO bobs (frota, placa,tara ) VALUES (?,?,?);";
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1,bobs.getFrota());

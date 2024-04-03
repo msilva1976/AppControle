@@ -7,8 +7,12 @@ import java.util.logging.Logger;
 
 import Controle.App;
 import Controle.CadastroBobs;
+import DAO.BobDAO;
+import Model.CadastroBobsModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -50,7 +54,13 @@ public class CadastroBobController implements Initializable {
             btnbobcadastrar.requestFocus();
         }
        });
-
+       //configuração dos botões
+       btnbobcadastrar.setOnMouseClicked((MouseEvent)->{
+        cadasbob();
+       });
+       btnbobcadastrar.setOnKeyPressed((KeyEvent)->{
+        cadasbob();
+       });
     }
     
     public void fecha(){
@@ -63,6 +73,27 @@ public class CadastroBobController implements Initializable {
         } catch (Exception e1) {
             Logger.getLogger(CadastroBobController.class.getName()).log(Level.SEVERE,null,e1);
         }
+    }
+    public void cadasbob(){
+        String frota = txtbobfrota.getText(),
+               placa = txtbobplaca.getText(),
+               tara = txtbobtara.getText();
+        CadastroBobsModel cadbob = new CadastroBobsModel(frota, placa, tara);
+        BobDAO dao = new BobDAO();
+
+         if (dao.add(cadbob)) {
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setHeaderText("Bobs Cadastrado");    
+                abreApp();
+                alert.showAndWait();
+                fecha();
+            }else{
+                 Alert alert = new Alert(AlertType.ERROR);
+                 alert.setHeaderText("Bobs não cadastrado");
+                 alert.showAndWait();
+            } 
+        
+        
     }
 }
 

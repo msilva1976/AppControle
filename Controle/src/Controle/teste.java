@@ -3,7 +3,7 @@ package Controle;
 import java.util.List;
 
 import DAO.CarretaDao;
-import DAO.UsuarioDAO;
+
 import Model.CadastroCarretaModel;
 
 
@@ -26,7 +26,7 @@ public class teste {
         List<CadastroCarretaModel>carretaModels = dao.geList();
         if (carretaModels != null) {
             for (int x = 0; x < carretaModels.size(); x++) {
-                carretaModels.get(x).mostraCarreta();;
+                carretaModels.get(x).mostraCarreta();
                 
             }
         }else{

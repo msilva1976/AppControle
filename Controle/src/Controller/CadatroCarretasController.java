@@ -7,8 +7,12 @@ import java.util.logging.Logger;
 
 import Controle.App;
 import Controle.CadastroCarreta;
+import DAO.CarretaDao;
+import Model.CadastroCarretaModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -57,6 +61,13 @@ public class CadatroCarretasController implements Initializable{
                 btbCadastraCarretaCadastra.requestFocus();
             }
         });
+       // configuração dos botoẽs 
+        btbCadastraCarretaCadastra.setOnMouseClicked((MouseEvent )->{
+        cadcarreta();
+       });
+        btbCadastraCarretaCadastra.setOnKeyPressed((KeyEvent)->{
+        cadcarreta();
+       });
     }
     public void fecha(){
         CadastroCarreta.getStage().close();
@@ -69,6 +80,26 @@ public class CadatroCarretasController implements Initializable{
             Logger.getLogger(App.class.getName()).log(Level.SEVERE,null,e1);
         }
 
+    }
+    public void cadcarreta(){
+        String frota = txtCadastroCarretasFrota.getText(),
+               placa = txtCadastroCarretasPlaca.getText(),
+               capacidade = txtCadastroCarretasCapacidade.getText(),
+               eixos = txtCadastroCarretasEixos.getText();
+
+        CadastroCarretaModel cadcar = new CadastroCarretaModel(0, frota, placa, capacidade, eixos);
+        CarretaDao dao = new CarretaDao();
+        if (dao.add(cadcar)) {
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setHeaderText("Carreta Cadastrada");    
+                abreapp();
+                alert.showAndWait();
+                fecha();
+            }else{
+                 Alert alert = new Alert(AlertType.ERROR);
+                 alert.setHeaderText("Carreta não cadastrada");
+                 alert.showAndWait();
+            } 
     }
 
 }

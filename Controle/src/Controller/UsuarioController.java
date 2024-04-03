@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class UsuarioController implements Initializable {
@@ -67,6 +68,9 @@ public class UsuarioController implements Initializable {
         btbcadastrausuario.setOnKeyPressed((KeyEvent e)->{
             cadastraUsuario();
         });
+        btbcadastrausuario.setOnMouseClicked((MouseEvent e)->{
+            caduser();
+        });
     }
     public void fecha(){
         Usuario.getStage().close();
@@ -107,8 +111,30 @@ public class UsuarioController implements Initializable {
             alert.setHeaderText("Senhas não são iguais");
             alert.showAndWait();
         }
+      
 
         
+    }
+    public void caduser(){
+           String nome = txtcadastrusuarionome.getText(),
+                  usuario = txtcadastrusuariousuario.getText(),
+                  senha = txtcadastrusuariosenha.getText();                         
+            UsuarioModel user = new UsuarioModel(nome, usuario, senha);
+            UsuarioDAO dao = new UsuarioDAO();
+            if (dao.add(user)) {
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setHeaderText("Usuario Cadastrado");    
+                abreApp();
+                alert.showAndWait();
+                fecha();
+            }else{
+                 Alert alert = new Alert(AlertType.ERROR);
+                 alert.setHeaderText("Usuario não cadastrado");
+                 alert.showAndWait();
+            } 
+
+             
+
     }
 }
 

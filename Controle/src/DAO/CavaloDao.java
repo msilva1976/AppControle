@@ -22,7 +22,7 @@ public class CavaloDao {
         conn = new ConnectionFactory().getConnection();
     }
     public boolean add(CadastroCavaloModel cavalo){
-        String sql = "NSERT INTO carretas (frota, placacarreta, capacidade, eixos) VALUES (?,?,?,?);";
+        String sql = "INSERT INTO cavalo (frota, placa,nomedomotorista) VALUES (?,?,?);";
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1,cavalo.getFrota());
@@ -45,15 +45,15 @@ public class CavaloDao {
     }
 /* configuração para atualização do banco de dados */  
 
-    public boolean update(CadastroCavaloModel carreta){
+    public boolean update(CadastroCavaloModel cavalo){
 
-        String sql = "UPDATE carretas SET frota = ? , placacarreta = ?, capacidade = ?, eixos = ? WHERE id = ?;";
+        String sql = "UPDATE cavalo SET frota = ? , placa = ?, nomedomotorista = ? WHERE id = ?;";
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1,carreta.getFrota());
-            stmt.setString(2,carreta.getPlaca());
-            stmt.setString(3,carreta.getNomeMotorista());
+            stmt.setString(1,cavalo.getFrota());
+            stmt.setString(2,cavalo.getPlaca());
+            stmt.setString(3,cavalo.getNomeMotorista());
             stmt.execute();
             stmt.close();
             conn.close();
@@ -67,12 +67,12 @@ public class CavaloDao {
     }
 
 /*configuração para deletar um arquivo no banco de dados */
-    public boolean delete(CadastroCavaloModel carreta){
-    String sql = "DELETE FROM carretas WHERE id = ?;";
+    public boolean delete(CadastroCavaloModel cavalo){
+    String sql = "DELETE FROM cavalo WHERE id = ?;";
 
     try {
         PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setLong(1,carreta.getId()); ;        
+        stmt.setLong(1,cavalo.getId()); ;        
         stmt.execute();
         stmt.close();
         conn.close();
@@ -89,17 +89,17 @@ public class CavaloDao {
 /*configuração para relatorios do dados do banco */
 public List<CadastroCavaloModel>geList(){
     List<CadastroCavaloModel> cavaloModels = new ArrayList<>();
-    String sql = "SELECT * carretas ";
+    String sql = "SELECT * cavalo ";
     try {
         PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet st = stmt.executeQuery();
         while (st.next()) {
-            CadastroCavaloModel carreta =  new CadastroCavaloModel(0, sql, sql,sql);
-            carreta.setId(st.getLong("id"));
-            carreta.setFrota(st.getString("frota"));
-            carreta.setPlaca(st.getString("placa"));
-            carreta.setNomeMotorista(st.getString("nome motorista"));
-            cavaloModels.add(carreta);
+            CadastroCavaloModel cavalo =  new CadastroCavaloModel(0, sql, sql,sql);
+            cavalo.setId(st.getLong("id"));
+            cavalo.setFrota(st.getString("frota"));
+            cavalo.setPlaca(st.getString("placa"));
+            cavalo.setNomeMotorista(st.getString("nome motorista"));
+            cavaloModels.add(cavalo);
         }
         stmt.close();
         st.close();
