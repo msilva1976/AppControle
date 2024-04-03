@@ -4,18 +4,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import Controle.App;
 import Controle.CadastroBobs;
 import Controle.CadastroCarreta;
 import Controle.CadastroCavalo;
+import Controle.EditaUsuario;
 import Controle.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-
 import javafx.stage.Stage;
 
 public class AppController implements Initializable {
@@ -73,6 +72,13 @@ public class AppController implements Initializable {
         menucadastrausuarios.setOnAction((KeyEvent)->{
          abreuser();
         });
+        // menu edita usuario
+        menueditarusuarios.setOnAction((MouseEvent)->{
+            editaruser();
+        });
+        menueditarusuarios.setOnAction((KeyEvent)->{
+            editaruser();
+        });
     }
 
 
@@ -114,6 +120,16 @@ public class AppController implements Initializable {
             carreta.start(new Stage());
         } catch (Exception e) {
             Logger.getLogger(CadatroCarretasController.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+    public void editaruser(){
+        EditaUsuario editauser = new EditaUsuario();
+        fechar();
+        try {
+            editauser.start(new Stage());
+        } catch (Exception e) {
+            Logger.getLogger(EditaUsuarioController.class.getName()).log(Level.SEVERE, null, e);
+            
         }
     }
 }
