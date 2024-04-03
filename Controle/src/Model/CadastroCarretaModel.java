@@ -50,6 +50,18 @@ public class CadastroCarretaModel {
         this.eixos = eixos;
     }
 
+    public void mostraCarreta(){
+        System.out.println("-----------lista de Carretas----------");
+        System.out.println("ID: "+ getId());
+        System.out.println("Frota: " +getFrota());
+        System.out.println("Placa: "+getPlacaCarreta());
+        System.out.println("Capacidade: "+getCapacidade());
+        System.out.println("Eixos"+getEixos());
+        System.out.println("--------------------------------------");
+
+        
+    }
+
 
     
     
