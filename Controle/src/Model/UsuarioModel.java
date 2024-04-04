@@ -41,7 +41,7 @@ public class UsuarioModel {
         this.senha = senha;
     }
     public void mostausuario(){
-        System.out.println("-----------lista de Usuarios----------");
+        System.out.println("-----------Lista de Usuarios----------");
         System.out.println("ID: "+ getId());
         System.out.println("Nome: " +getNome());
         System.out.println("Usuario: "+getUsuario());

@@ -3,11 +3,14 @@ package Controller;
 
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Controle.App;
 import Controle.Login;
+import DAO.UsuarioDAO;
+import Model.UsuarioModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -63,25 +66,40 @@ public class LoginController implements Initializable {
         Login.getStage().close();
     }
     public void logar(){
-        if (txtloginuser.getText().equals("msilva") && txtloginpassword.getText().equals("1234")) {
-            App principal = new App();
-            fecha();
-            try {
-                principal.start(new Stage());
-            } catch (Exception e1) {
-                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE,null,e1);
+        UsuarioDAO dao = new UsuarioDAO();
+        List<UsuarioModel> usuario = dao.geList();
+        for (int x = 0; x < usuario.size(); x++) {
+
+            if (txtloginuser.getText().equals(usuario.get(x).getUsuario()) && txtloginpassword.getText().equals(usuario.get(x).getSenha())) {
+                App principal = new App();
+                x=usuario.size();
+                fecha();
+                try {
+                    principal.start(new Stage());
+                } catch (Exception e1) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE,null,e1);
+                }
+                
+            } else {
+                if (x == usuario.size()) {
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setHeaderText("Erro");
+                    alert.setTitle("Erro de Login");
+                    alert.setContentText("Erro de Usuario ou Senha");
+                    alert.showAndWait();
+                }
+                  
+                
+               
+                
             }
-            
-        } else {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setHeaderText("Erro");
-            alert.setTitle("Erro de Login");
-            alert.setContentText("Erro de Usuario ou Senha");
-            alert.showAndWait();
-            
-           
+
             
         }
+
+       
+
+      
 
     }
 

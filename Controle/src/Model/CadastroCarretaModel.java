@@ -51,7 +51,7 @@ public class CadastroCarretaModel {
     }
 
     public void mostraCarreta(){
-        System.out.println("-----------lista de Carretas----------");
+        System.out.println("-----------Lista de Carretas----------");
         System.out.println("ID: "+ getId());
         System.out.println("Frota: " +getFrota());
         System.out.println("Placa: "+getPlacaCarreta());

@@ -41,7 +41,7 @@ public class CadastroBobsModel {
         this.tara = tara;
     }
     public void mostausuario(){
-        System.out.println("-----------lista de Usuarios----------");
+        System.out.println("-----------Lista de Bobs----------");
         System.out.println("ID: "+ getId());
         System.out.println("Frota: " +getFrota());
         System.out.println("Placa: "+getPlaca());

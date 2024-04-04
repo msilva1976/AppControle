@@ -42,7 +42,7 @@ public class CadastroCavaloModel {
     }
 
     public void mostraCavalo(){
-        System.out.println("-----------lista de carretas----------");
+        System.out.println("-----------Lista de Carretas----------");
         System.out.println("ID: "+ getId());
         System.out.println("Frota: " +getFrota());
         System.out.println("Placa: "+getPlaca());

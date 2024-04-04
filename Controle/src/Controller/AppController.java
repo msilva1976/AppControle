@@ -8,7 +8,7 @@ import Controle.App;
 import Controle.CadastroBobs;
 import Controle.CadastroCarreta;
 import Controle.CadastroCavalo;
-import Controle.EditaUsuario;
+import Controle.ListarUsuario;
 import Controle.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -123,12 +123,12 @@ public class AppController implements Initializable {
         }
     }
     public void editaruser(){
-        EditaUsuario editauser = new EditaUsuario();
+        ListarUsuario editauser = new ListarUsuario();
         fechar();
         try {
             editauser.start(new Stage());
         } catch (Exception e) {
-            Logger.getLogger(EditaUsuarioController.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ListarUsuarioController.class.getName()).log(Level.SEVERE, null, e);
             
         }
     }

@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class EditaUsuario extends Application{
+public class ListarUsuario extends Application{
 
     private static Stage stage;
 
@@ -15,14 +15,14 @@ public class EditaUsuario extends Application{
     }
 
     @Override
-    public void start(Stage editauserStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/View/EditaUsuario.fxml"));
+    public void start(Stage listaruserStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/View/ListarUsuario.fxml"));
         Scene scene = new Scene(root);
-        editauserStage.setTitle("Edita Usuario");
-        editauserStage.setScene(scene);
-        editauserStage.show();
-        editauserStage.setResizable(false);
-        setStage(editauserStage);
+        listaruserStage.setTitle("Edita Usuario");
+        listaruserStage.setScene(scene);
+        listaruserStage.show();
+        listaruserStage.setResizable(false);
+        setStage(listaruserStage);
        
     }
 
@@ -31,7 +31,7 @@ public class EditaUsuario extends Application{
     }
 
     public static void setStage(Stage stage) {
-        EditaUsuario.stage = stage;
+        ListarUsuario.stage = stage;
     }
     
     
