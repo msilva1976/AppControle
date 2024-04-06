@@ -18,11 +18,12 @@ public class ListarUsuario extends Application{
     public void start(Stage listaruserStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/View/ListarUsuario.fxml"));
         Scene scene = new Scene(root);
-        listaruserStage.setTitle("Edita Usuario");
+        listaruserStage.setTitle("Listar de Usuarios");
         listaruserStage.setScene(scene);
-        listaruserStage.show();
         listaruserStage.setResizable(false);
+        listaruserStage.show();
         setStage(listaruserStage);
+
        
     }
 

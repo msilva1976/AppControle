@@ -2,9 +2,6 @@ package Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import Controle.App;
 import Controle.CadastroBobs;
 import DAO.BobDAO;
@@ -18,7 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
+
 
 public class CadastroBobController implements Initializable {
 
@@ -32,11 +29,11 @@ public class CadastroBobController implements Initializable {
        //configuração dos botoes
        btbbobcancelar.setOnMouseClicked((MouseEvent e)->{
         fecha();        
-        abreApp();
+        App.abreApp();
        });
        btbbobcancelar.setOnAction((KeyEvent )->{
         fecha();
-        abreApp();
+        App.abreApp();
        });
        //configuração do textfield
        txtbobfrota.setOnKeyPressed((KeyEvent e)->{
@@ -66,14 +63,7 @@ public class CadastroBobController implements Initializable {
     public void fecha(){
         CadastroBobs.getStage().close();
     }
-    public void abreApp(){
-        App app = new App();
-        try {
-            app.start(new Stage());
-        } catch (Exception e1) {
-            Logger.getLogger(CadastroBobController.class.getName()).log(Level.SEVERE,null,e1);
-        }
-    }
+
     public void cadasbob(){
         String frota = txtbobfrota.getText(),
                placa = txtbobplaca.getText(),
@@ -84,7 +74,7 @@ public class CadastroBobController implements Initializable {
          if (dao.add(cadbob)) {
                 Alert alert = new Alert(AlertType.CONFIRMATION);
                 alert.setHeaderText("Bobs Cadastrado");    
-                abreApp();
+                App.abreApp();
                 alert.showAndWait();
                 fecha();
             }else{

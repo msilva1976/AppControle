@@ -1,5 +1,7 @@
 package Model;
 
+
+
 public class UsuarioModel {
     private long id;
     private String nome;
@@ -50,6 +52,7 @@ public class UsuarioModel {
 
         
     }
+
 
 
     

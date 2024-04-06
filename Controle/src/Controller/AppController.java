@@ -8,6 +8,9 @@ import Controle.App;
 import Controle.CadastroBobs;
 import Controle.CadastroCarreta;
 import Controle.CadastroCavalo;
+import Controle.ListarBobs;
+import Controle.ListarCarreta;
+import Controle.ListarCavalo;
 import Controle.ListarUsuario;
 import Controle.Usuario;
 import javafx.fxml.FXML;
@@ -74,10 +77,29 @@ public class AppController implements Initializable {
         });
         // menu edita usuario
         menueditarusuarios.setOnAction((MouseEvent)->{
-            editaruser();
+            listaruser();
         });
+        //configuraçõe do menu editar
         menueditarusuarios.setOnAction((KeyEvent)->{
-            editaruser();
+          listaruser();
+        });
+        menueditarcavalos.setOnAction((MouseEvent)->{
+           ListarCavalo.abrirListaCavalo();
+        });
+        menueditarcavalos.setOnAction((KeyEvent)->{
+           ListarCavalo.abrirListaCavalo();
+        });
+        menueditarcarretas.setOnAction((MouseEvent)->{
+            ListarCarreta.abreListarCarreta();
+        });
+        menueditarcarretas.setOnAction((KeyEvent)->{
+            ListarCarreta.abreListarCarreta();
+        });
+        menueditarbobs.setOnAction((MouseEvent)->{
+            ListarBobs.abreListaBob();
+        });
+        menueditarbobs.setOnAction((KeyEvent)->{
+            ListarBobs.abreListaBob();
         });
     }
 
@@ -122,14 +144,17 @@ public class AppController implements Initializable {
             Logger.getLogger(CadatroCarretasController.class.getName()).log(Level.SEVERE, null, e);
         }
     }
-    public void editaruser(){
-        ListarUsuario editauser = new ListarUsuario();
+    public void listaruser(){
+        ListarUsuario listaruser = new ListarUsuario();
         fechar();
         try {
-            editauser.start(new Stage());
+            listaruser.start(new Stage());
+
         } catch (Exception e) {
             Logger.getLogger(ListarUsuarioController.class.getName()).log(Level.SEVERE, null, e);
-            
         }
     }
+
+
+    
 }

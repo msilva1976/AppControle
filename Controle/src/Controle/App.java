@@ -1,5 +1,9 @@
 package Controle;
 
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import Controller.AppController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,7 +36,20 @@ public class App extends Application{
     public static void setStage(Stage stage) {
         App.stage = stage;
     }
-
+    public static void abreApp(){
+        App app = new App();
+        try {
+            app.start(new Stage());
+        } catch (Exception e) {
+            Logger.getLogger(AppController.class.getName()).log(Level.SEVERE, null, e);
+            e.printStackTrace();
+        }
+     
+    }
+    public static void fechar(){
+        App.getStage().close();
+    }
+    
     
     
     
