@@ -46,5 +46,17 @@ public class ListarBobs extends Application {
         ListarBobs.getStage().close();
         App.abreApp();
     }
+    public static void abreBobs(){
+        ListarBobs abreBobs = new ListarBobs();
+        try {
+            App.fechar();
+            abreBobs.start(new Stage());
+        } catch (Exception e) {
+            
+            Logger.getLogger(ListarBobsController.class.getName()).log(Level.SEVERE,null,e);
+            
+        }
+    }
+    
      
 }

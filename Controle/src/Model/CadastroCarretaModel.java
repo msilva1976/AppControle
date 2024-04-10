@@ -1,24 +1,32 @@
 package Model;
 
+import java.util.List;
+
+import DAO.CarretaDao;
+
 public class CadastroCarretaModel {
     private long id;
     private String frota;
-    private String placaCarreta;
+    private String placa;
     private String capacidade;
     private String eixos;
-    public CadastroCarretaModel(long id, String frota, String placaCarreta, String capacidade, String eixos) {
+
+    
+ 
+    public CadastroCarretaModel(long id, String frota, String placa, String capacidade, String eixos) {
         this.id = id;
         this.frota = frota;
-        this.placaCarreta = placaCarreta;
+        this.placa = placa;
         this.capacidade = capacidade;
         this.eixos = eixos;
     }
-    public CadastroCarretaModel(String frota, String placaCarreta, String capacidade, String eixos) {
+    public CadastroCarretaModel(String frota, String placa, String capacidade, String eixos) {
         this.frota = frota;
-        this.placaCarreta = placaCarreta;
+        this.placa = placa;
         this.capacidade = capacidade;
         this.eixos = eixos;
     }
+  
     public long getId() {
         return id;
     }
@@ -31,11 +39,11 @@ public class CadastroCarretaModel {
     public void setFrota(String frota) {
         this.frota = frota;
     }
-    public String getPlacaCarreta() {
-        return placaCarreta;
+    public String getPlaca() {
+        return placa;
     }
-    public void setPlacaCarreta(String placaCarreta) {
-        this.placaCarreta = placaCarreta;
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
     public String getCapacidade() {
         return capacidade;
@@ -49,18 +57,30 @@ public class CadastroCarretaModel {
     public void setEixos(String eixos) {
         this.eixos = eixos;
     }
-
     public void mostraCarreta(){
         System.out.println("-----------Lista de Carretas----------");
         System.out.println("ID: "+ getId());
         System.out.println("Frota: " +getFrota());
-        System.out.println("Placa: "+getPlacaCarreta());
+        System.out.println("Placa: "+getPlaca());
         System.out.println("Capacidade: "+getCapacidade());
         System.out.println("Eixos"+getEixos());
         System.out.println("--------------------------------------");
 
         
     }
+    public static void main(String[] args) {
+        CarretaDao dao = new CarretaDao();
+        List<CadastroCarretaModel>carreta = dao.geList();
+        if (carreta != null) {
+            for (int x = 0; x < carreta.size() ; x++) {
+                carreta.get(x).mostraCarreta();
+            }
+        } else {
+            System.out.println("lista nula");
+        }
+    }
+    
+   
 
 
     

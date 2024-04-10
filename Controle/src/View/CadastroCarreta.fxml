@@ -2,36 +2,50 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="1128.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ListarCarretaController">
+<AnchorPane maxHeight="279.0" maxWidth="519.0" minHeight="279.0" minWidth="519.0" prefHeight="279.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CadatroCarretasController">
    <children>
-      <TableView fx:id="tabelacarreta" layoutX="14.0" layoutY="14.0" prefHeight="575.0" prefWidth="731.0">
-        <columns>
-          <TableColumn fx:id="clmid" prefWidth="75.0" text="Id" />
-          <TableColumn fx:id="clmfrota" prefWidth="105.0" text="Frota" />
-            <TableColumn fx:id="clmplaca" minWidth="0.0" prefWidth="197.0" text="Placa da Carreta" />
-            <TableColumn fx:id="clmcapacidade" prefWidth="243.0" text="Capacida" />
-            <TableColumn fx:id="clmeixos" prefWidth="109.0" text="Eixos" />
-        </columns>
-      </TableView>
-      <Button fx:id="btndeletar" layoutX="14.0" layoutY="605.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="145.0" text="Delete" />
-      <Button fx:id="btnaualizar" layoutX="177.0" layoutY="605.0" mnemonicParsing="false" prefWidth="145.0" text="Atualizar" />
-      <Label layoutX="772.0" layoutY="40.0" text="Buscar">
+      <Label layoutX="40.0" layoutY="34.0" text="Cadastro Carretas" textFill="#0021f8">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="100.0" text="Frota">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="772.0" layoutY="65.0" prefHeight="26.0" prefWidth="224.0" />
-      <Button layoutX="1008.0" layoutY="65.0" mnemonicParsing="false" text="OK">
+      <Label layoutX="163.0" layoutY="100.0" text="Placa">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="283.0" layoutY="100.0" text="Capacidade">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="406.0" layoutY="100.0" text="Eixos">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCadastroCarretasFrota" layoutX="40.0" layoutY="129.0" prefHeight="26.0" prefWidth="112.0" promptText="Frota" />
+      <TextField fx:id="txtCadastroCarretasPlaca" layoutX="163.0" layoutY="129.0" prefHeight="26.0" prefWidth="112.0" promptText="Placa" />
+      <TextField fx:id="txtCadastroCarretasCapacidade" layoutX="283.0" layoutY="129.0" prefHeight="26.0" prefWidth="112.0" promptText="Capacidade" />
+      <TextField fx:id="txtCadastroCarretasEixos" layoutX="406.0" layoutY="129.0" prefHeight="26.0" prefWidth="68.0" promptText="Eixos" />
+      <Button fx:id="btbCadastraCarretaCadastra" layoutX="40.0" layoutY="187.0" mnemonicParsing="false" prefWidth="101.0" text="Cadastra">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btncancela" layoutX="335.0" layoutY="605.0" mnemonicParsing="false" prefWidth="145.0" text="Cancela" />
+      <Button fx:id="btnCadastraCarretaCancel" layoutX="154.0" layoutY="187.0" mnemonicParsing="false" prefWidth="101.0" text="Cancel">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

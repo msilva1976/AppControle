@@ -1,6 +1,8 @@
 package Model;
 
+import java.util.List;
 
+import DAO.UsuarioDAO;
 
 public class UsuarioModel {
     private long id;
@@ -51,6 +53,20 @@ public class UsuarioModel {
         System.out.println("--------------------------------------");
 
         
+    }
+    public static void main(String[] args) {
+        UsuarioDAO dao = new UsuarioDAO();
+        List<UsuarioModel>usuarioModels = dao.geList();
+        if (usuarioModels != null) {
+            for (int x = 0; x < usuarioModels.size(); x++) {
+                usuarioModels.get(x).mostausuario();
+                
+            }
+        }else{
+            System.out.println("lista nula");
+            
+
+        } 
     }
 
 

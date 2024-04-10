@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="279.0" maxWidth="519.0" minHeight="279.0" minWidth="519.0" prefHeight="279.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CadatroCarretasController">
    <children>
       <Label layoutX="40.0" layoutY="34.0" text="Cadastro Carretas" textFill="#0021f8">

@@ -6,6 +6,72 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CadastroCavaloModel",
+            "request": "launch",
+            "mainClass": "Model.CadastroCavaloModel",
+            "projectName": "AppControle"
+        },
+        {
+            "type": "java",
+            "name": "CadastroBobsModel",
+            "request": "launch",
+            "mainClass": "Model.CadastroBobsModel",
+            "projectName": "AppControle"
+        },
+        {
+            "type": "java",
+            "name": "CadastroCarretaModel",
+            "request": "launch",
+            "mainClass": "Model.CadastroCarretaModel",
+            "projectName": "AppControle"
+        },
+        {
+            "type": "java",
+            "name": "AppController",
+            "request": "launch",
+            "mainClass": "Controller.AppController",
+            "projectName": "AppControle"
+        },
+        {
+            "type": "java",
+            "name": "UsuarioModel",
+            "request": "launch",
+            "mainClass": "Model.UsuarioModel",
+            "projectName": "AppControle"
+        },
+        {
+            "type": "java",
+            "name": "teste",
+            "request": "launch",
+            "mainClass": "Controle.teste",
+            "projectName": "AppControle"
+        },
+        {
+            "type": "java",
+            "name": "CadastroCarreta",
+            "request": "launch",
+            "mainClass": "Controle.CadastroCarreta",
+            "projectName": "AppControle",
+            "vmArgs": "--module-path /home/msilva/JavaFX/openjfx-21.0.2_linux-x64_bin-sdk/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Login",
+            "request": "launch",
+            "mainClass": "Controle.Login",
+            "projectName": "AppControle",
+            "vmArgs": "--module-path /home/msilva/JavaFX/openjfx-21.0.2_linux-x64_bin-sdk/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "Controle.App",
+            "projectName": "AppControle",
+            "vmArgs": "--module-path /home/msilva/JavaFX/openjfx-21.0.2_linux-x64_bin-sdk/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
             "name": "ListarCarreta",
             "request": "launch",
             "mainClass": "Controle.ListarCarreta",

@@ -19,7 +19,7 @@ public class ListarCarreta extends Application {
 
     @Override
     public void start(Stage listarcarretStage) throws Exception {
-        Parent root = FXMLLoader.load( getClass().getResource("/View/CadastroCarreta.fxml"));
+        Parent root = FXMLLoader.load( getClass().getResource("/View/ListarCarreta.fxml"));
         Scene scene = new Scene(root);
         listarcarretStage.setScene(scene);
         listarcarretStage.setTitle("Lista de Carretas");
@@ -51,4 +51,8 @@ public class ListarCarreta extends Application {
         App.abreApp();
     }
     
+
 }
+    
+
+

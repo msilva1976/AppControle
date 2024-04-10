@@ -1,5 +1,9 @@
 package Model;
 
+import java.util.List;
+
+import DAO.BobDAO;
+
 public class CadastroBobsModel {
     long id;
     String frota;
@@ -40,7 +44,7 @@ public class CadastroBobsModel {
     public void setTara(String tara) {
         this.tara = tara;
     }
-    public void mostausuario(){
+    public void mostrabob(){
         System.out.println("-----------Lista de Bobs----------");
         System.out.println("ID: "+ getId());
         System.out.println("Frota: " +getFrota());
@@ -50,6 +54,17 @@ public class CadastroBobsModel {
 
         
     }
+public static void main(String[] args) {
+    BobDAO dao = new BobDAO();
+    List<CadastroBobsModel>bob = dao.geList();
+    if (bob!= null) {
+        for(int x=0;x<bob.size();x++){
+            bob.get(x).mostrabob();
+        }
+    } else {
+        System.out.println("lista nula");
+    }
+}
 
 
     

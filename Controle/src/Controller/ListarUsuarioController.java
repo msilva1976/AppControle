@@ -11,6 +11,8 @@ import Controle.App;
 import Controle.ListarUsuario;
 import DAO.UsuarioDAO;
 import Model.UsuarioModel;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -30,6 +32,7 @@ public class ListarUsuarioController implements Initializable {
     @FXML    private TableColumn<UsuarioModel,Long> clmid;
     @FXML    private TableColumn<UsuarioModel, String> clmnome;
     @FXML    private TableView<UsuarioModel> tabelausuario;
+   
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initTabel();
@@ -39,12 +42,23 @@ public class ListarUsuarioController implements Initializable {
         btncancela.setOnKeyPressed((KeyEvent)->{
             fechar();
         });
+        tabelausuario.getSelectionModel().selectedItemProperty().addListener(new ChangeListener(){
+
+            @Override
+            public void changed(ObservableValue arg0, Object arg1, Object arg2) {
+                UsuarioModel usuario = 
+            }
+
+        
+            
+        });
     
        
     }
     public void fechar(){
-        ListarUsuario.getStage().close();
+        
         App.abreApp();    
+        ListarUsuario.getStage().close();
        
         
 

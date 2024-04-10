@@ -24,11 +24,11 @@ public class CarretaDao {
         conn = new ConnectionFactory().getConnection();
     }
     public boolean add(CadastroCarretaModel carreta){
-        String sql = "INSERT INTO carretas (frota, placacarreta, capacidade, eixos) VALUES (?,?,?,?);";
+        String sql = "INSERT INTO carretas (frota, placa, capacidade, eixos) VALUES (?,?,?,?);";
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1,carreta.getFrota());
-            stmt.setString(2,carreta.getPlacaCarreta());
+            stmt.setString(2,carreta.getPlaca());
             stmt.setString(3,carreta.getCapacidade());
             stmt.setString(4,carreta.getEixos());
             stmt.execute();
@@ -47,12 +47,12 @@ public class CarretaDao {
 
     public boolean update(CadastroCarretaModel carreta){
 
-        String sql = "UPDATE carretas SET frota = ? , placacarreta = ?, capacidade = ?, eixos = ? WHERE id = ?;";
+        String sql = "UPDATE carretas SET frota = ? , placa = ?, capacidade = ?, eixos = ? WHERE id = ?;";
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1,carreta.getFrota());
-            stmt.setString(2,carreta.getPlacaCarreta());
+            stmt.setString(2,carreta.getPlaca());
             stmt.setString(3,carreta.getCapacidade());
             stmt.setString(5,carreta.getEixos());
             stmt.execute();
@@ -90,18 +90,19 @@ public class CarretaDao {
 /*configuração para relatorios do dados do banco */
 public List<CadastroCarretaModel>geList(){
     List<CadastroCarretaModel> carretasModels = new ArrayList<>();
-    String sql = "SELECT * carretas ";
+    String sql = "SELECT * FROM carretas ";
+
     try {
         PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet st = stmt.executeQuery();
         while (st.next()) {
-            CadastroCarretaModel carreta =  new CadastroCarretaModel(0, sql, sql, sql,sql);
+            CadastroCarretaModel carreta = new CadastroCarretaModel(0, sql, sql, sql, sql) ;
             carreta.setId(st.getLong("id"));
             carreta.setFrota(st.getString("frota"));
-            carreta.setPlacaCarreta(st.getString("placa"));
+            carreta.setPlaca(st.getString("placa"));
             carreta.setCapacidade(st.getString("capacidade"));
-            carreta.setEixos(st.getString("eixo"));
-            carretasModels.add(carreta);
+            carreta.setEixos(st.getString("eixos"));
+            carretasModels.add(carreta);          
         }
         stmt.close();
         st.close();
@@ -109,9 +110,11 @@ public List<CadastroCarretaModel>geList(){
     } catch (Exception e) {
         System.out.println("Erro lista não retornada");
         return null;
-        
-    }
     
+    
+    
+    
+    }
     return carretasModels;
 
 }

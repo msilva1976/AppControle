@@ -1,19 +1,23 @@
 package Model;
 
+import java.util.List;
+
+import DAO.CavaloDao;
+
 public class CadastroCavaloModel {
     long id;
     String frota;
-    String nomeMotorista;
+    String nome;
     String placa;
-    public CadastroCavaloModel(long id, String frota, String nomeMotorista, String placa) {
+    public CadastroCavaloModel(long id, String frota, String nome, String placa) {
         this.id = id;
         this.frota = frota;
-        this.nomeMotorista = nomeMotorista;
+        this.nome = nome;
         this.placa = placa;
     }
-    public CadastroCavaloModel(String frota, String nomeMotorista, String placa) {
+    public CadastroCavaloModel(String frota, String nome, String placa) {
         this.frota = frota;
-        this.nomeMotorista = nomeMotorista;
+        this.nome = nome;
         this.placa = placa;
     }
     public long getId() {
@@ -28,11 +32,11 @@ public class CadastroCavaloModel {
     public void setFrota(String frota) {
         this.frota = frota;
     }
-    public String getNomeMotorista() {
-        return nomeMotorista;
+    public String getNome() {
+        return nome;
     }
-    public void setNomeMotorista(String nomeMotorista) {
-        this.nomeMotorista = nomeMotorista;
+    public void setNomeMotorista(String nome) {
+        this.nome = nome;
     }
     public String getPlaca() {
         return placa;
@@ -46,10 +50,21 @@ public class CadastroCavaloModel {
         System.out.println("ID: "+ getId());
         System.out.println("Frota: " +getFrota());
         System.out.println("Placa: "+getPlaca());
-        System.out.println("Nome do motorista: "+getNomeMotorista());
+        System.out.println("Nome do motorista: "+getNome());
         System.out.println("--------------------------------------");
 
         
+    }
+    public static void main(String[] args) {
+        CavaloDao dao = new CavaloDao();
+        List<CadastroCavaloModel>cavalo = dao.geList();
+        if (cavalo != null) {
+            for (int x=0;x<cavalo.size();x++) {
+                cavalo.get(x).mostraCavalo();
+            }
+        } else {
+            System.out.println("lsita nula");
+        }
     }
 
     

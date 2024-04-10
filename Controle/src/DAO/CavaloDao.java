@@ -22,12 +22,12 @@ public class CavaloDao {
         conn = new ConnectionFactory().getConnection();
     }
     public boolean add(CadastroCavaloModel cavalo){
-        String sql = "INSERT INTO cavalo (frota, placa,nomedomotorista) VALUES (?,?,?);";
+        String sql = "INSERT INTO cavalo (frota, placa,nome) VALUES (?,?,?);";
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1,cavalo.getFrota());
             stmt.setString(2,cavalo.getPlaca());
-            stmt.setString(3,cavalo.getNomeMotorista());
+            stmt.setString(3,cavalo.getNome());
             stmt.execute();
             stmt.close();
             conn.close();
@@ -47,13 +47,13 @@ public class CavaloDao {
 
     public boolean update(CadastroCavaloModel cavalo){
 
-        String sql = "UPDATE cavalo SET frota = ? , placa = ?, nomedomotorista = ? WHERE id = ?;";
+        String sql = "UPDATE cavalo SET frota = ? , placa = ?, nome = ? WHERE id = ?;";
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1,cavalo.getFrota());
             stmt.setString(2,cavalo.getPlaca());
-            stmt.setString(3,cavalo.getNomeMotorista());
+            stmt.setString(3,cavalo.getNome());
             stmt.execute();
             stmt.close();
             conn.close();
@@ -89,7 +89,7 @@ public class CavaloDao {
 /*configuração para relatorios do dados do banco */
 public List<CadastroCavaloModel>geList(){
     List<CadastroCavaloModel> cavaloModels = new ArrayList<>();
-    String sql = "SELECT * cavalo ";
+    String sql = "SELECT * FROM cavalo ";
     try {
         PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet st = stmt.executeQuery();
@@ -98,7 +98,7 @@ public List<CadastroCavaloModel>geList(){
             cavalo.setId(st.getLong("id"));
             cavalo.setFrota(st.getString("frota"));
             cavalo.setPlaca(st.getString("placa"));
-            cavalo.setNomeMotorista(st.getString("nome motorista"));
+            cavalo.setNomeMotorista(st.getString("nome"));
             cavaloModels.add(cavalo);
         }
         stmt.close();

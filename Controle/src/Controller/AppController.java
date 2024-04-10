@@ -1,6 +1,7 @@
 package Controller;
 
 import java.net.URL;
+
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,6 +14,7 @@ import Controle.ListarCarreta;
 import Controle.ListarCavalo;
 import Controle.ListarUsuario;
 import Controle.Usuario;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Menu;
@@ -49,10 +51,10 @@ public class AppController implements Initializable {
         });
         // menu para cadastro de carretas
         menucadastracarretas.setOnAction((MouseEvent) -> {
-            abrecarreta();
+           CadastroCarreta.abreCarreta();
         });
         menucadastrocarretas.setOnAction((KeyEvent) -> {
-         abrecarreta();
+            CadastroCarreta.abreCarreta();
         });
         // menu para cadastro de cavalos
         menucadastracavalos.setOnAction((MouseEvent) -> {
@@ -82,17 +84,17 @@ public class AppController implements Initializable {
         //configuraçõe do menu editar
         menueditarusuarios.setOnAction((KeyEvent)->{
           listaruser();
-        });
+       });
         menueditarcavalos.setOnAction((MouseEvent)->{
            ListarCavalo.abrirListaCavalo();
         });
         menueditarcavalos.setOnAction((KeyEvent)->{
            ListarCavalo.abrirListaCavalo();
         });
-        menueditarcarretas.setOnAction((MouseEvent)->{
+       menueditarcarretas.setOnAction((MouseEvent)->{
             ListarCarreta.abreListarCarreta();
         });
-        menueditarcarretas.setOnAction((KeyEvent)->{
+       menueditarcarretas.setOnAction((KeyEvent)->{
             ListarCarreta.abreListarCarreta();
         });
         menueditarbobs.setOnAction((MouseEvent)->{
@@ -135,15 +137,7 @@ public class AppController implements Initializable {
             Logger.getLogger(CadastroCavaloController.class.getName()).log(Level.SEVERE, null, e);
         }
     }
-    public void abrecarreta(){
-        CadastroCarreta carreta = new CadastroCarreta();
-        fechar();
-        try {
-            carreta.start(new Stage());
-        } catch (Exception e) {
-            Logger.getLogger(CadatroCarretasController.class.getName()).log(Level.SEVERE, null, e);
-        }
-    }
+  
     public void listaruser(){
         ListarUsuario listaruser = new ListarUsuario();
         fechar();
@@ -154,6 +148,7 @@ public class AppController implements Initializable {
             Logger.getLogger(ListarUsuarioController.class.getName()).log(Level.SEVERE, null, e);
         }
     }
+  
 
 
     

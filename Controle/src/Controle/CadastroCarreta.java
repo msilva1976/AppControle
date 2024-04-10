@@ -1,5 +1,9 @@
 package Controle;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import Controller.CadatroCarretasController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -34,6 +38,21 @@ public class CadastroCarreta extends Application{
     public static void setStage(Stage stage) {
         CadastroCarreta.stage = stage;
     }
+
+
+    public static void abreCarreta(){
+        CadastroCarreta abreCarreta = new CadastroCarreta();
+        
+        try {
+            App.fechar();
+            abreCarreta.start(new Stage());
+            
+        } catch (Exception e) {
+            Logger.getLogger(CadatroCarretasController .class.getName()).log(Level.SEVERE, null, e);
+            
+        }
+    }
+    
 
 
     
