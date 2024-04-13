@@ -2,28 +2,33 @@ package Model;
 
 import java.util.List;
 
+
+
 import DAO.BobDAO;
 
 public class CadastroBobsModel {
-    long id;
+    Long id;
     String frota;
     String placa;
     String tara;
-    public CadastroBobsModel(long id, String frota, String placa, String tara) {
-        this.id = id;
-        this.frota = frota;
-        this.placa = placa;
-        this.tara = tara;
-    }
+
+    
+   
     public CadastroBobsModel(String frota, String placa, String tara) {
         this.frota = frota;
         this.placa = placa;
         this.tara = tara;
     }
-    public long getId() {
+    public CadastroBobsModel(Long id, String frota, String placa, String tara) {
+        this.id = id;
+        this.frota = frota;
+        this.placa = placa;
+        this.tara = tara;
+    }
+    public Long getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public String getFrota() {

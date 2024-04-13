@@ -5,7 +5,7 @@ import java.util.List;
 import DAO.CarretaDao;
 
 public class CadastroCarretaModel {
-    private long id;
+    private Long id;
     private String frota;
     private String placa;
     private String capacidade;
@@ -13,24 +13,24 @@ public class CadastroCarretaModel {
 
     
  
-    public CadastroCarretaModel(long id, String frota, String placa, String capacidade, String eixos) {
-        this.id = id;
-        this.frota = frota;
-        this.placa = placa;
-        this.capacidade = capacidade;
-        this.eixos = eixos;
-    }
+    
     public CadastroCarretaModel(String frota, String placa, String capacidade, String eixos) {
         this.frota = frota;
         this.placa = placa;
         this.capacidade = capacidade;
         this.eixos = eixos;
     }
-  
-    public long getId() {
+    public CadastroCarretaModel(Long id, String frota, String placa, String capacidade, String eixos) {
+        this.id = id;
+        this.frota = frota;
+        this.placa = placa;
+        this.capacidade = capacidade;
+        this.eixos = eixos;
+    }
+    public Long getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public String getFrota() {

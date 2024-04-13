@@ -27,9 +27,9 @@ public class CarretaDao {
         String sql = "INSERT INTO carretas (frota, placa, capacidade, eixos) VALUES (?,?,?,?);";
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1,carreta.getFrota());
-            stmt.setString(2,carreta.getPlaca());
-            stmt.setString(3,carreta.getCapacidade());
+            stmt.setString(1,carreta.getFrota().toUpperCase());
+            stmt.setString(2,carreta.getPlaca().toUpperCase());
+            stmt.setString(3,carreta.getCapacidade().toUpperCase());
             stmt.setString(4,carreta.getEixos());
             stmt.execute();
             stmt.close();
@@ -51,9 +51,9 @@ public class CarretaDao {
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1,carreta.getFrota());
-            stmt.setString(2,carreta.getPlaca());
-            stmt.setString(3,carreta.getCapacidade());
+            stmt.setString(1,carreta.getFrota().toUpperCase());
+            stmt.setString(2,carreta.getPlaca().toUpperCase());
+            stmt.setString(3,carreta.getCapacidade().toUpperCase());
             stmt.setString(5,carreta.getEixos());
             stmt.execute();
             stmt.close();
@@ -96,7 +96,7 @@ public List<CadastroCarretaModel>geList(){
         PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet st = stmt.executeQuery();
         while (st.next()) {
-            CadastroCarretaModel carreta = new CadastroCarretaModel(0, sql, sql, sql, sql) ;
+            CadastroCarretaModel carreta = new CadastroCarretaModel(null, sql, sql, sql, sql);
             carreta.setId(st.getLong("id"));
             carreta.setFrota(st.getString("frota"));
             carreta.setPlaca(st.getString("placa"));

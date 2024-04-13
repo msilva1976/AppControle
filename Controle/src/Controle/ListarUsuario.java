@@ -5,6 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
+import Controller.ListarUsuarioController;
 
 public class ListarUsuario extends Application{
 
@@ -33,6 +38,17 @@ public class ListarUsuario extends Application{
 
     public static void setStage(Stage stage) {
         ListarUsuario.stage = stage;
+    }
+    public static void fecha(){
+        ListarUsuario.getStage().close();
+    }
+    public static void AbreListarUsuario(){
+        ListarUsuario listarUsuario = new ListarUsuario();
+        try {
+            listarUsuario.start(new Stage());
+        } catch (Exception e) {
+            Logger.getLogger(ListarUsuarioController.class.getName()).log(Level.SEVERE, null, e);
+        }
     }
     
     

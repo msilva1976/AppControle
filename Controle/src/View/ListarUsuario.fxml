@@ -32,5 +32,13 @@
          </font>
       </Button>
       <Button fx:id="btncancela" layoutX="335.0" layoutY="605.0" mnemonicParsing="false" prefWidth="145.0" text="Cancela" />
+      <Label layoutX="795.0" layoutY="165.0" text="Id:" />
+      <Label fx:id="lbid" layoutX="824.0" layoutY="166.0" />
+      <Label layoutX="772.0" layoutY="194.0" text="Nome:" />
+      <Label layoutX="764.0" layoutY="223.0" text="Usuario:" />
+      <Label layoutX="772.0" layoutY="252.0" text="Senha:" />
+      <Label fx:id="lbnome" layoutX="824.0" layoutY="195.0" />
+      <Label fx:id="lbusuario" layoutX="825.0" layoutY="224.0" />
+      <Label fx:id="lbsenha" layoutX="824.0" layoutY="252.0" />
    </children>
 </AnchorPane>

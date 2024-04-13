@@ -22,8 +22,8 @@ public class BobDAO{
         String sql = "INSERT INTO bobs (frota, placa,tara ) VALUES (?,?,?);";
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1,bobs.getFrota());
-            stmt.setString(2,bobs.getPlaca());
+            stmt.setString(1,bobs.getFrota().toUpperCase());
+            stmt.setString(2,bobs.getPlaca().toUpperCase());
             stmt.setString(3,bobs.getTara());
             stmt.execute();
             stmt.close();
@@ -46,8 +46,8 @@ public class BobDAO{
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1,bobs.getFrota());
-            stmt.setString(2,bobs.getPlaca());
+            stmt.setString(1,bobs.getFrota().toUpperCase());
+            stmt.setString(2,bobs.getPlaca().toUpperCase());
             stmt.setString(3,bobs.getTara());
             stmt.execute();
             stmt.close();
@@ -89,7 +89,7 @@ public List<CadastroBobsModel>geList(){
         PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet st = stmt.executeQuery();
         while (st.next()) {
-            CadastroBobsModel carreta =  new CadastroBobsModel(0, sql, sql,sql);
+            CadastroBobsModel carreta =  new CadastroBobsModel(null, sql, sql, sql);
             carreta.setId(st.getLong("id"));
             carreta.setFrota(st.getString("frota"));
             carreta.setPlaca(st.getString("placa"));

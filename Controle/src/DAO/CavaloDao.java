@@ -25,9 +25,9 @@ public class CavaloDao {
         String sql = "INSERT INTO cavalo (frota, placa,nome) VALUES (?,?,?);";
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1,cavalo.getFrota());
-            stmt.setString(2,cavalo.getPlaca());
-            stmt.setString(3,cavalo.getNome());
+            stmt.setString(1,cavalo.getFrota().toUpperCase());
+            stmt.setString(2,cavalo.getPlaca().toUpperCase());
+            stmt.setString(3,cavalo.getNome().toUpperCase());
             stmt.execute();
             stmt.close();
             conn.close();
@@ -51,9 +51,9 @@ public class CavaloDao {
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1,cavalo.getFrota());
-            stmt.setString(2,cavalo.getPlaca());
-            stmt.setString(3,cavalo.getNome());
+            stmt.setString(1,cavalo.getFrota().toUpperCase());
+            stmt.setString(2,cavalo.getPlaca().toUpperCase());
+            stmt.setString(3,cavalo.getNome().toUpperCase());
             stmt.execute();
             stmt.close();
             conn.close();
@@ -94,11 +94,11 @@ public List<CadastroCavaloModel>geList(){
         PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet st = stmt.executeQuery();
         while (st.next()) {
-            CadastroCavaloModel cavalo =  new CadastroCavaloModel(0, sql, sql,sql);
+            CadastroCavaloModel cavalo =  new CadastroCavaloModel(null, sql, sql, sql);
             cavalo.setId(st.getLong("id"));
             cavalo.setFrota(st.getString("frota"));
             cavalo.setPlaca(st.getString("placa"));
-            cavalo.setNomeMotorista(st.getString("nome"));
+            cavalo.setNome (st.getString("nome"));
             cavaloModels.add(cavalo);
         }
         stmt.close();

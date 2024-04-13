@@ -5,11 +5,47 @@ import java.util.List;
 import DAO.UsuarioDAO;
 
 public class UsuarioModel {
-    private long id;
+    private Long id;
     private String nome;
     private String usuario;
     private String senha;
-    public UsuarioModel(long id, String nome, String usuario, String senha) {
+    
+   public UsuarioModel(String nome, String usuario, String senha) {
+        this.nome = nome;
+        this.usuario = usuario;
+        this.senha = senha;
+    }
+public UsuarioModel(Long id, String nome, String usuario, String senha) {
+        this.id = id;
+        this.nome = nome;
+        this.usuario = usuario;
+        this.senha = senha;
+    }
+public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    public String getSenha() {
+        return senha;
+    }
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    /* public UsuarioModel(long id, String nome, String usuario, String senha) {
         this.id = id;
         this.nome = nome;
         this.usuario = usuario;
@@ -44,6 +80,7 @@ public class UsuarioModel {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    */
     public void mostausuario(){
         System.out.println("-----------Lista de Usuarios----------");
         System.out.println("ID: "+ getId());

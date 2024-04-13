@@ -38,9 +38,9 @@ public class UsuarioDAO {
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, p.getNome());
-            stmt.setString(2, p.getUsuario());
-            stmt.setString(3,p.getSenha());
+            stmt.setString(1,  p.getNome().toUpperCase());
+            stmt.setString(2, p.getUsuario().toUpperCase());
+            stmt.setString(3,p.getSenha().toUpperCase());
             stmt.execute();
             stmt.close();
             conn.close();
@@ -75,8 +75,8 @@ public class UsuarioDAO {
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, p.getNome());
-            stmt.setString(2, p.getUsuario());
+            stmt.setString(1, p.getNome().toUpperCase());
+            stmt.setString(2, p.getUsuario().toUpperCase());
             stmt.setString(3,p.getSenha());
             stmt.setLong(4, p.getId());
             stmt.execute();
@@ -143,7 +143,7 @@ public List<UsuarioModel>geList(){
         PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet st = stmt.executeQuery();
         while (st.next()) {
-            UsuarioModel p =  new UsuarioModel(0, sql, sql, sql);
+            UsuarioModel p =  new UsuarioModel(null, sql, sql, sql);
             p.setId(st.getLong("id"));
             p.setNome(st.getString("nome"));
             p.setUsuario(st.getString("usuario"));

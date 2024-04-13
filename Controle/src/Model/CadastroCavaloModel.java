@@ -5,25 +5,27 @@ import java.util.List;
 import DAO.CavaloDao;
 
 public class CadastroCavaloModel {
-    long id;
+    Long id;
     String frota;
     String nome;
     String placa;
-    public CadastroCavaloModel(long id, String frota, String nome, String placa) {
-        this.id = id;
-        this.frota = frota;
-        this.nome = nome;
-        this.placa = placa;
-    }
+    
+
     public CadastroCavaloModel(String frota, String nome, String placa) {
         this.frota = frota;
         this.nome = nome;
         this.placa = placa;
     }
-    public long getId() {
+    public CadastroCavaloModel(Long id, String frota, String nome, String placa) {
+        this.id = id;
+        this.frota = frota;
+        this.nome = nome;
+        this.placa = placa;
+    }
+    public Long getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public String getFrota() {
@@ -35,7 +37,7 @@ public class CadastroCavaloModel {
     public String getNome() {
         return nome;
     }
-    public void setNomeMotorista(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
     public String getPlaca() {
@@ -44,7 +46,6 @@ public class CadastroCavaloModel {
     public void setPlaca(String placa) {
         this.placa = placa;
     }
-
     public void mostraCavalo(){
         System.out.println("-----------Lista de Carretas----------");
         System.out.println("ID: "+ getId());

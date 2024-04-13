@@ -87,7 +87,7 @@ public class CadatroCarretasController implements Initializable{
                capacidade = txtCadastroCarretasCapacidade.getText(),
                eixos = txtCadastroCarretasEixos.getText();
 
-        CadastroCarretaModel cadcar = new CadastroCarretaModel(0, frota, placa, capacidade, eixos);
+        CadastroCarretaModel cadcar = new CadastroCarretaModel(null, frota, placa, capacidade, eixos);
         CarretaDao dao = new CarretaDao();
         if (dao.add(cadcar)) {
                 Alert alert = new Alert(AlertType.CONFIRMATION);

@@ -13,15 +13,21 @@ import Controle.App;
 import Controle.ListarCarreta;
 import DAO.CarretaDao;
 import Model.CadastroCarretaModel;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
 
 public class ListarCarretaController implements Initializable {
 
@@ -33,10 +39,18 @@ public class ListarCarretaController implements Initializable {
     @FXML    private TableColumn<CadastroCarretaModel, String> clmfrota;
     @FXML    private TableColumn<CadastroCarretaModel, Long> clmid;
     @FXML    private TableColumn<CadastroCarretaModel, String> clmplaca;
+    @FXML    private Label lblid;
+    @FXML    private Label lbeixo;
+    @FXML    private Label lbcapoacidade;
+    @FXML    private Label lbfrota;
+    @FXML    private Label lbplaca;
     @FXML    private TableView<CadastroCarretaModel> tabelacarreta;
+    private CadastroCarretaModel selecionado;
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
       initTabelCarreta();
+      
       btncancela.setOnMouseClicked((MouseEvent)->{
         ListarCarreta.getStage().close();
         App.abreApp();
@@ -45,6 +59,27 @@ public class ListarCarretaController implements Initializable {
         ListarCarreta.getStage().close();
         App.fechar();
       });
+      btndeletar.setOnMouseClicked((MouseEvent)->{
+        deleta();
+      });
+      btndeletar.setOnKeyPressed((KeyEvent)->{
+        deleta();
+      });
+      try {
+        tabelacarreta.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+
+            @Override
+            public void changed(ObservableValue obsvable, Object oldValue, Object newValue) {
+              selecionado = (CadastroCarretaModel)newValue;
+              selecionado.mostraCarreta();
+              mostraDetalhe();
+            }
+            
+          });
+    } catch (Exception e) {
+       
+        e.printStackTrace();
+    }
     
     }
     public void initTabelCarreta(){
@@ -68,6 +103,37 @@ public class ListarCarretaController implements Initializable {
         Logger.getLogger(ListarCarretaController.class.getName()).log(Level.SEVERE,null,e);
       }
 
+    }
+    
+    public void deleta(){
+      if (selecionado != null) {
+        CarretaDao dao = new CarretaDao();
+        dao.delete(selecionado);
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setHeaderText("Carreta deletada com sucesso!");
+        alert.showAndWait();
+        tabelacarreta.setItems(atualizaTabela());
+      } else {
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setHeaderText("Carreta não deletada");
+        alert.showAndWait();
+      }
+    }
+
+    public void mostraDetalhe(){
+      if (selecionado != null) {
+        lblid.setText(selecionado.getId().toString());
+        lbfrota.setText(selecionado.getFrota());
+        lbplaca.setText(selecionado.getPlaca());
+        lbcapoacidade.setText(selecionado.getCapacidade());
+        lbeixo.setText(selecionado.getEixos());
+      } else {
+        lblid.setText("");
+        lbfrota.setText("");
+        lbplaca.setText("");
+        lbcapoacidade.setText("");
+        lbeixo.setText("");        
+      }
     }
 
 
