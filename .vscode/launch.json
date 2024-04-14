@@ -6,6 +6,30 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CarretaAtualizar",
+            "request": "launch",
+            "mainClass": "Controle.CarretaAtualizar",
+            "projectName": "AppControle",
+            "vmArgs": "--module-path /home/msilva/JavaFX/openjfx-21.0.2_linux-x64_bin-sdk/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "CavaloAtualizar",
+            "request": "launch",
+            "mainClass": "Controle.CavaloAtualizar",
+            "projectName": "AppControle",
+            "vmArgs": "--module-path /home/msilva/JavaFX/openjfx-21.0.2_linux-x64_bin-sdk/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "BobAtualizar",
+            "request": "launch",
+            "mainClass": "Controle.BobAtualizar",
+            "projectName": "AppControle",
+            "vmArgs": "--module-path /home/msilva/JavaFX/openjfx-21.0.2_linux-x64_bin-sdk/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
             "name": "AlterarPessoa",
             "request": "launch",
             "mainClass": "Controle.AlterarPessoa",

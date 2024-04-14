@@ -2,10 +2,14 @@ package Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
 
+
+import Controle.BobAtualizar;
 import Controle.ListarBobs;
+import Controle.ListarUsuario;
 import DAO.BobDAO;
 import Model.CadastroBobsModel;
 import javafx.beans.value.ChangeListener;
@@ -21,6 +25,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
 
 
 public class ListarBobsController implements Initializable {
@@ -54,6 +60,30 @@ public class ListarBobsController implements Initializable {
         });
         btndeletar.setOnKeyPressed((KeyEvent)->{
             deleta();
+        });
+        btnaualizar.setOnMouseClicked((MouseEvent)->{
+           if (selecionado != null) {
+                BobAtualizar atualizar = new BobAtualizar(selecionado);
+                
+                ListarUsuario.fecha();
+                try {
+                    atualizar.start(new Stage());
+                } catch (Exception e) {
+                    Logger.getLogger(ListarUsuarioController.class.getName()).log(Level.SEVERE,null,e);
+                }
+                
+            } else {
+                Alert alert = new Alert(AlertType.WARNING);
+                alert.setHeaderText("Selecione um usuario");
+                alert.showAndWait();
+            }
+            
+
+        });
+        btnaualizar.setOnKeyPressed((KeyEvent)->{
+           
+            BobAtualizar.AbreAtualizarBob();
+            
         });
         tabelabob.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
 

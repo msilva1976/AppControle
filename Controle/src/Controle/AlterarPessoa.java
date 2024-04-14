@@ -1,7 +1,5 @@
 package Controle;
 
-
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Controller.AlteraUsuarioController;
@@ -13,20 +11,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class AlterarPessoa extends Application{
+public class AlterarPessoa extends Application {
     private static Stage stage;
-
 
     public AlterarPessoa(UsuarioModel usuario1) {
         AlteraUsuarioController.setUsuario2(usuario1);
     }
-    
-
-
-
-
-
- 
 
     public static void main(String[] args) {
         launch(args);
@@ -35,13 +25,13 @@ public class AlterarPessoa extends Application{
     @Override
     public void start(Stage alterStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/View/AlteraUsuario.fxml"));
-        Scene scene =  new Scene(root);
+        Scene scene = new Scene(root);
         alterStage.setTitle("Alterar Usuario");
         alterStage.setScene(scene);
         alterStage.setResizable(false);
         alterStage.show();
         setStage(alterStage);
-      
+
     }
 
     public static Stage getStage() {
@@ -52,28 +42,23 @@ public class AlterarPessoa extends Application{
         AlterarPessoa.stage = stage;
     }
 
-    public static void fecha(){
+    public static void fecha() {
         AlterarPessoa.getStage().close();
-        
+
     }
 
-
-    
-    public static void AbreAlterarPessoa(){
+    public static void AbreAlterarPessoa() {
         AlterarPessoa alterarPessoa = new AlterarPessoa(null);
         try {
             ListarUsuario.fecha();
             alterarPessoa.start(new Stage());
         } catch (Exception e) {
-             Logger.getLogger(ListarUsuarioController.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ListarUsuarioController.class.getName()).log(Level.SEVERE, null, e);
         }
     }
-    
-    public static void AtualizaFecha(){
-        
-        
+
+    public static void AtualizaFecha() {
 
     }
 
-    
 }
