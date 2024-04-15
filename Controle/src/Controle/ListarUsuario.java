@@ -49,7 +49,8 @@ public class ListarUsuario extends Application{
         } catch (Exception e) {
             Logger.getLogger(ListarUsuarioController.class.getName()).log(Level.SEVERE, null, e);
         }
-    }
+    } 
+    
     
     
 }

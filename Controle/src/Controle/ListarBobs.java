@@ -21,7 +21,7 @@ public class ListarBobs extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/View/ListarBobs.fxml"));
         Scene scene = new Scene(root);
         listarbobsStage.setScene(scene);
-        listarbobsStage.setTitle("Lista de Cavalos");
+        listarbobsStage.setTitle("Lista de Bobs");
         listarbobsStage.setResizable(false);
         listarbobsStage.show();
         setStage(listarbobsStage);
@@ -35,8 +35,9 @@ public class ListarBobs extends Application {
     }
     public static void abreListaBob(){
         ListarBobs listarBobs = new ListarBobs();
-        App.fechar();
+        
         try {
+            App.fechar();
             listarBobs.start(new Stage());
         } catch (Exception e) {
             Logger.getLogger(ListarBobsController.class.getName()).log(Level.SEVERE, null, e);
@@ -44,19 +45,15 @@ public class ListarBobs extends Application {
     }
     public static void fechalistaBob(){
         ListarBobs.getStage().close();
+        
+    }
+    public static void fecha(){
+        ListarBobs.getStage().close();
         App.abreApp();
+        
     }
-    public static void abreBobs(){
-        ListarBobs abreBobs = new ListarBobs();
-        try {
-            App.fechar();
-            abreBobs.start(new Stage());
-        } catch (Exception e) {
-            
-            Logger.getLogger(ListarBobsController.class.getName()).log(Level.SEVERE,null,e);
-            
-        }
-    }
+
+  
     
      
 }

@@ -1,58 +1,59 @@
 package Controle;
 
 
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import Controller.CarretaAtualizarController;
+import Model.CadastroCarretaModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
-
 public class CarretaAtualizar extends Application {
     private static Stage stage;
+    
+
+    public CarretaAtualizar(CadastroCarretaModel carreta1) {
+        CarretaAtualizarController.setCarreta2(carreta1);
+    }
+
 
     public static void main(String[] args) {
         launch(args);
+
     }
+
     @Override
-    public void start(Stage carretaatualStage) throws Exception {
+    public void start(Stage carretaatualizStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/View/CarretaAtualizar.fxml"));
         Scene scene = new Scene(root);
-        carretaatualStage.setTitle("Atualizar Carreta");
-        carretaatualStage.setScene(scene);
-        carretaatualStage.setResizable(false);
-        carretaatualStage.show();
-        setStage(carretaatualStage);    
+        carretaatualizStage.setTitle("Atualizar Carreta");
+        carretaatualizStage.setScene(scene);
+        carretaatualizStage.setResizable(false);
+        carretaatualizStage.show();
+        setStage(carretaatualizStage);
+
     }
+
     public static Stage getStage() {
         return stage;
     }
+
     public static void setStage(Stage stage) {
         CarretaAtualizar.stage = stage;
     }
-    public static void fecha(){
-        CarretaAtualizar.getStage().close();
-    }
-    public static void Abrea(){
-        CarretaAtualizar carretaAtualizar = new CarretaAtualizar();
+    public static void abre(){
+        CarretaAtualizar carretaAtualizar = new CarretaAtualizar(null);
         try {
-            ListarCarreta.fecharListaCarreta();
+            
             carretaAtualizar.start(new Stage());
         } catch (Exception e) {
-            Logger.getLogger(CarretaAtualizarController.class.getName()).log(Level.SEVERE,null,e);
             
         }
-
     }
-    
-    
+    public static void fechar(){
+        CarretaAtualizar.getStage().close();
+        ListarCarreta.abreListarCarreta();
+    }
 
-
-     
 }

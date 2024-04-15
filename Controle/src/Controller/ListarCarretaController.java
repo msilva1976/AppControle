@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
 
 import Controle.App;
+import Controle.CarretaAtualizar;
 import Controle.ListarCarreta;
 import DAO.CarretaDao;
 import Model.CadastroCarretaModel;
@@ -27,6 +28,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
 
 
 public class ListarCarretaController implements Initializable {
@@ -65,6 +67,44 @@ public class ListarCarretaController implements Initializable {
       btndeletar.setOnKeyPressed((KeyEvent)->{
         deleta();
       });
+      btnaualizar.setOnMouseClicked((MouseEvent)->{
+       
+        if (selecionado != null) {
+          CarretaAtualizar carretaAtualizar = new CarretaAtualizar(selecionado);
+
+          try {
+            ListarCarreta.fecha();
+            carretaAtualizar.start(new Stage());
+          } catch (Exception e) {
+            
+          }
+        } else {
+          Alert alert = new Alert(AlertType.WARNING);
+          alert.setHeaderText("Selecione uma carreta");
+          alert.showAndWait();
+          
+        }
+       
+       
+      });
+      btnaualizar.setOnKeyPressed((KeyEvent)->{
+        
+        if (selecionado != null) {
+          CarretaAtualizar carretaAtualizar = new CarretaAtualizar(selecionado);
+          try {
+            carretaAtualizar.start(new Stage());
+          } catch (Exception e) {
+           
+          }
+        } else {
+          Alert alert = new Alert(AlertType.WARNING);
+          alert.setHeaderText("Selecione uma carreta");
+          alert.show();
+                   
+          
+        }
+  
+      });
       try {
         tabelacarreta.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
 
@@ -85,6 +125,7 @@ public class ListarCarretaController implements Initializable {
     public void initTabelCarreta(){
       clmid.setCellValueFactory(new PropertyValueFactory<>("id"));
       clmfrota.setCellValueFactory(new PropertyValueFactory<>("frota"));
+      clmplaca.setCellValueFactory(new PropertyValueFactory<>("placa"));
       clmcapacidade.setCellValueFactory(new PropertyValueFactory<>("capacidade"));
       clmeixos.setCellValueFactory(new PropertyValueFactory<>("eixos"));
       tabelacarreta.setItems(atualizaTabela());
@@ -95,12 +136,12 @@ public class ListarCarretaController implements Initializable {
     
     }
     public static void abriListaCarreta(){
-      ListarCarreta listarCarreta = new ListarCarreta();
+   //   ListarCarreta listarCarreta = new ListarCarreta();
       App.fechar();
       try {
-        listarCarreta.start(new Stage());
+   //     listarCarreta.start(new Stage());
       } catch (Exception e) {
-        Logger.getLogger(ListarCarretaController.class.getName()).log(Level.SEVERE,null,e);
+        
       }
 
     }

@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Controle.AlterarPessoa;
+
 import Controle.BobAtualizar;
 import Controle.ListarBobs;
 import DAO.BobDAO;
@@ -29,19 +30,30 @@ public class BobAtualizarController implements Initializable{
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         iniciaBob(bob2.getId());    
+        btbbobcancelar.setOnMouseClicked((MouseEvent)->{
+            BobAtualizar.fecha();
+            ListarBobs.abreListaBob();
+        });
+        btbbobcancelar.setOnKeyPressed((KeyEvent)->{
+            BobAtualizar.fecha();
+            ListarBobs.abreListaBob();
+        });
         btnatualizar.setOnMouseClicked((MouseEvent)->{
             atualiza();
-            ListarBobs.fechalistaBob();
+            
+            ListarBobs.fecha();           
             BobAtualizar.AbreAtualizarBob();
         });  
         btnatualizar.setOnKeyPressed((KeyEvent)->{
             atualiza();
-            ListarBobs.fechalistaBob();
+           
+            ListarBobs.fecha();
+            
             BobAtualizar.AbreAtualizarBob();
         });
     }
    
-    public void iniciaBob(long id){
+    public void iniciaBob(Long id){
         lbid.setText(bob2.getId().toString());
         txtbobfrota.setText(bob2.getFrota());
         txtbobplaca.setText(bob2.getPlaca());

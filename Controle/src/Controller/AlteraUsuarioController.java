@@ -55,7 +55,7 @@ public class AlteraUsuarioController implements Initializable {
         btbatualizar.setOnKeyPressed((KeyEvent) -> {
             atualizar();
             AlterarPessoa.fecha();
-            ListarUsuario.AbreListarUsuario();
+           ListarUsuario.AbreListarUsuario();
 
         });
     }
@@ -90,7 +90,7 @@ public class AlteraUsuarioController implements Initializable {
             UsuarioModel usuarioModel = new UsuarioModel(id, nome, usuario, senha);
             if (dao.update(usuarioModel)) {
                 Alert alert = new Alert(AlertType.CONFIRMATION);
-                alert.setHeaderText("Usuario atualizad");
+                alert.setHeaderText("Usuario atualizado");
                 AlterarPessoa.fecha();
                 alert.showAndWait();
             } else {

@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 public class CavaloAtualizar extends Application{
     private static Stage stage;
 
+    
+
     public static void main(String[] args) {
         launch(args);
     }

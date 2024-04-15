@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 import Controle.BobAtualizar;
 import Controle.ListarBobs;
-import Controle.ListarUsuario;
+
 import DAO.BobDAO;
 import Model.CadastroBobsModel;
 import javafx.beans.value.ChangeListener;
@@ -50,10 +50,10 @@ public class ListarBobsController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initTabelBob();
         btncancela.setOnMouseClicked((MouseEvent) -> {
-            ListarBobs.fechalistaBob();
+            ListarBobs.fecha();
         });
         btncancela.setOnKeyPressed((KeyEvent) -> {
-            ListarBobs.fechalistaBob();
+            ListarBobs.fecha();
         });
         btndeletar.setOnMouseClicked((MouseEvent)->{
             deleta();
@@ -65,7 +65,7 @@ public class ListarBobsController implements Initializable {
            if (selecionado != null) {
                 BobAtualizar atualizar = new BobAtualizar(selecionado);
                 
-                ListarUsuario.fecha();
+               ListarBobs.fechalistaBob();
                 try {
                     atualizar.start(new Stage());
                 } catch (Exception e) {

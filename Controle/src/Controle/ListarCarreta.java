@@ -48,7 +48,10 @@ public class ListarCarreta extends Application {
     }
     public static void fecharListaCarreta(){
         ListarCarreta.getStage().close();
-        App.abreApp();
+        
+    }
+    public static void fecha(){
+        ListarCarreta.getStage().close();
     }
     
 

@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ListarCarreta",
+            "request": "launch",
+            "mainClass": "Controle.ListarCarreta",
+            "projectName": "AppControle"
+        },
+        {
+            "type": "java",
+            "name": "ListarBobs",
+            "request": "launch",
+            "mainClass": "Controle.ListarBobs",
+            "projectName": "AppControle"
+        },
+        {
+            "type": "java",
             "name": "CarretaAtualizar",
             "request": "launch",
             "mainClass": "Controle.CarretaAtualizar",
